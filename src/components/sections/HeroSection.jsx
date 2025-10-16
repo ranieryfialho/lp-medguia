@@ -54,7 +54,7 @@ const HeroSection = () => {
             Solicitar Demonstração Gratuita
           </Button>
           <Button size="lg" variant="outline" className="w-full border-white/20 bg-transparent text-base hover:bg-white/10 hover:text-white sm:w-auto">
-            Ver Planos
+            Fale Conosco
           </Button>
         </motion.div>
       </div>
