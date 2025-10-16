@@ -6,14 +6,18 @@ import { cn } from "@/lib/utils";
 const HeroSection = () => {
   return (
     <section className="relative container mx-auto flex h-[calc(100vh-80px)] min-h-[600px] flex-col items-center justify-center px-4 md:px-6">
-
       <GridPattern
         squares={[
-          [4, 4], [5, 1], [8, 2], [6, 6], [10, 5], [13, 3]
+          [4, 4],
+          [5, 1],
+          [8, 2],
+          [6, 6],
+          [10, 5],
+          [13, 3],
         ]}
         className={cn(
           "[mask-image:radial-gradient(ellipse_at_center,white,transparent_80%)]",
-          "absolute inset-0 h-full w-full skew-y-12",
+          "absolute inset-0 h-full w-full skew-y-12"
         )}
       />
 
@@ -50,12 +54,23 @@ const HeroSection = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <Button size="lg" className="w-full bg-[#2575fc] text-base hover:bg-[#2575fc]/90 sm:w-auto">
-            Solicitar Demonstração Gratuita
-          </Button>
-          <Button size="lg" variant="outline" className="w-full border-white/20 bg-transparent text-base hover:bg-white/10 hover:text-white sm:w-auto">
-            Fale Conosco
-          </Button>
+          <a href="#formulario">
+            <Button
+              size="lg"
+              className="w-full bg-[#2575fc] text-base hover:bg-[#2575fc]/90 sm:w-auto"
+            >
+              Solicitar Demonstração Gratuita
+            </Button>
+          </a>
+          <a href="#">
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full border-white/20 bg-transparent text-base hover:bg-white/10 hover:text-white sm:w-auto"
+            >
+              Fale Conosco
+            </Button>
+          </a>
         </motion.div>
       </div>
     </section>

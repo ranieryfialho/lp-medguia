@@ -1,11 +1,32 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useIMask } from "react-imask";
 
 const CtaSection = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const targetPhoneNumber = "5585999999999";
+
+  const { ref: phoneRef, value: phoneValue } = useIMask({
+    mask: '(00) 00000-0000',
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formattedMessage = `Olá! Tenho interesse no acesso gratuito ao MedGuia.\n\n*Nome:* ${name}\n*Email:* ${email}\n*Telefone:* ${phoneValue}`;
+    const encodedMessage = encodeURIComponent(formattedMessage);
+    const whatsappUrl = `https://wa.me/${targetPhoneNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
-    <section className="container mx-auto py-20 md:py-28 px-4 md:px-6">
+    <section id="formulario" className="container mx-auto py-20 md:py-28 px-4 md:px-6">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -24,20 +45,38 @@ const CtaSection = () => {
             Nossa equipe entrará em contato para liberar sua conta.
           </p>
 
-          <form className="mt-8 w-full max-w-md space-y-6 text-left">
+          <form onSubmit={handleSubmit} className="mt-8 w-full max-w-md space-y-6 text-left">
             <div className="grid w-full items-center gap-1.5">
               <Label htmlFor="name">Nome Completo</Label>
-              <Input type="text" id="name" placeholder="Seu nome" className="bg-white/5 border-white/10 focus-visible:ring-offset-[#6a11cb]" />
+              <Input
+                type="text" id="name" placeholder="Seu nome"
+                className="bg-white/5 border-white/10 focus-visible:ring-offset-[#6a11cb]"
+                value={name} onChange={(e) => setName(e.target.value)}
+                required
+              />
             </div>
             <div className="grid w-full items-center gap-1.5">
               <Label htmlFor="email">Email Profissional</Label>
-              <Input type="email" id="email" placeholder="nome@suaclinica.com" className="bg-white/5 border-white/10 focus-visible:ring-offset-[#6a11cb]" />
+              <Input
+                type="email" id="email" placeholder="Seu email"
+                className="bg-white/5 border-white/10 focus-visible:ring-offset-[#6a11cb]"
+                value={email} onChange={(e) => setEmail(e.target.value)}
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                required
+              />
             </div>
             <div className="grid w-full items-center gap-1.5">
               <Label htmlFor="phone">Telefone / WhatsApp</Label>
-              <Input type="tel" id="phone" placeholder="(99) 99999-9999" className="bg-white/5 border-white/10 focus-visible:ring-offset-[#6a11cb]" />
+              <Input
+                ref={phoneRef}
+                type="tel"
+                id="phone"
+                placeholder="Seu contato"
+                className="bg-white/5 border-white/10 focus-visible:ring-offset-[#6a11cb]"
+                required
+              />
             </div>
-            <Button size="lg" className="w-full bg-[#2575fc] text-base hover:bg-[#2575fc]/90 py-6">
+            <Button type="submit" size="lg" className="w-full bg-[#2575fc] text-base hover:bg-[#2575fc]/90 py-6">
               Quero Meu Acesso Gratuito
             </Button>
           </form>

@@ -32,9 +32,11 @@ const Header = () => {
           </ul>
         </nav>
 
-        <Button className="hidden md:block bg-[#2575fc] hover:bg-[#2575fc]/90">
-          Solicitar Demonstração
-        </Button>
+        <a href="#formulario">
+          <Button className="hidden md:block bg-[#2575fc] hover:bg-[#2575fc]/90">
+            Solicitar Demonstração
+          </Button>
+        </a>
       </div>
     </header>
   );

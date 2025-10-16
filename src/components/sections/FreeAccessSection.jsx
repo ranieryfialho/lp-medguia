@@ -4,7 +4,10 @@ import { Gift } from "lucide-react";
 
 const FreeAccessSection = () => {
   return (
-    <section id="acesso-gratuito" className="container mx-auto py-20 md:py-28 px-4 md:px-6">
+    <section
+      id="acesso-gratuito"
+      className="container mx-auto py-20 md:py-28 px-4 md:px-6"
+    >
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -27,9 +30,15 @@ const FreeAccessSection = () => {
             Estamos oferecendo acesso completo e gratuito a todos os recursos
             até o final de 2025. A cobrança iniciará apenas em 2026.
           </p>
-          <Button size="lg" className="mt-8 bg-[#2575fc] text-base hover:bg-[#2575fc]/90 px-8 py-6">
-            Solicitar Meu Acesso Gratuito
-          </Button>
+
+          <a href="#formulario">
+            <Button
+              size="lg"
+              className="mt-8 bg-[#2575fc] text-base hover:bg-[#2575fc]/90 px-8 py-6"
+            >
+              Solicitar Meu Acesso Gratuito
+            </Button>
+          </a>
         </div>
       </motion.div>
     </section>

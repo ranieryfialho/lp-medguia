@@ -7,30 +7,39 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+import avatarDrErnane from "@/assets/dr-ernane.jpg";
+import avatarDrHeitor from "@/assets/dr-heitor-dourado.jpg";
+import avatarSecCarla from "@/assets/secretaria-carla.jpg";
+import avatarDrCalosFitas from "@/assets/dr-carlos-fitas.png";
+
 const testimonials = [
   {
+    avatar: avatarDrErnane,
     quote:
-      "O MedGuia transformou minha rotina. A integração do prontuário com o CRM de vendas é algo que eu não encontrei em nenhuma outra plataforma. Finalmente tenho controle total do meu funil de pacientes.",
-    name: "Dr. Ricardo Almeida",
-    title: "Ortopedista - Clínica Movimenta",
+      "Estou gostando muito da experiência com o MedGuia. Além das inúmeras informações que o sistema nos traz (atendimentos, procedimentos realizados, gráficos mensais...), é simples de usar. Outra ferramenta que é bastante útil é transcrição, facilitando muito e agilizando o registro das consultas.",
+    name: "Dr. Ernane",
+    title: "Ortopedista",
   },
   {
+    avatar: avatarDrHeitor,
     quote:
-      "Eu perdia horas com tarefas administrativas. O MedGuia automatizou meus agendamentos e, o mais importante, os follow-ups. Minha taxa de retorno de pacientes aumentou 30% em 6 meses.",
-    name: "Dra. Juliana Vasconcelos",
-    title: "Dermatologista - Pele Clinic",
+      "Já havia usado vários outros: doctoralia, amigo. Mas realmente o medguia tem uma solucao bem diferente do consultoio. Alem de prontuario ele te ajuda em todas as métricas do consultorio, conhecer seu público, te ajudar na recorrencia dos procedimentos. Isso ajuda muito na organizacao do consultorio e inclusive permite saber examente em que e como melhorar para faturar mais.",
+    name: "Dr. Heitor Dourado",
+    title: "Ortopedia e Traumatologia",
   },
   {
+    avatar: avatarSecCarla,
     quote:
-      "Como gestor, o dashboard estratégico é minha ferramenta favorita. Consigo ver em tempo real o desempenho da clínica, quais procedimentos são mais rentáveis e onde precisamos melhorar. Essencial!",
-    name: "Marcos Oliveira",
-    title: "Gestor - Centro Médico Integrado",
+      "O MedGuia é de fácil acesso, com uma interface intuitiva que ajuda muito no dia a dia. É um sistema completo para agendamentos e prontuários, mas o grande diferencial é a gravação da consulta por IA. Essa ferramenta otimiza o tempo e enriquece a anamnese, registrando detalhes importantes que poderiam passar despercebidos. Recomendo fortemente!",
+    name: "Carla",
+    title: "Secretária Médica",
   },
   {
+    avatar: avatarDrCalosFitas,
     quote:
-      "A personalização é fantástica. Conseguimos adaptar a plataforma inteira para o nosso fluxo de trabalho, desde os horários de atendimento em diferentes unidades até os nossos serviços específicos. Recomendo.",
-    name: "Dra. Beatriz Costa",
-    title: "Cirurgiã Plástica",
+      "O MedGuia é uma nova plataforma com inúmeras novidades. A principal delas é a transcrição da consulta por inteligência artificial, que dinamiza e personaliza o atendimento sem que eu precise ficar escrevendo. Além disso, a plataforma oferece ferramentas que viabilizam a vida financeira do consultório e o suporte é excepcional, tirando todas as dúvidas de imediato.",
+    name: "Dr. Carlos Alberto Fitas",
+    title: "Ortopedia e Traumatologia",
   },
 ];
 
@@ -63,7 +72,6 @@ const TestimonialsSection = () => {
         >
           <CarouselContent className="-ml-4">
             {testimonials.map((testimonial, index) => (
-
               <CarouselItem
                 key={index}
                 className="pl-4 basis-5/6 md:basis-1/2 lg:basis-1/3"
@@ -75,7 +83,11 @@ const TestimonialsSection = () => {
                     </blockquote>
                     
                     <div className="mt-6 flex flex-col items-center gap-4 md:flex-row md:items-center">
-                      <div className="flex-shrink-0 h-12 w-12 rounded-full bg-gradient-to-r from-[#6a11cb] to-[#2575fc] border-2 border-white/10" />
+                      <img
+                        src={testimonial.avatar}
+                        alt={`Foto de ${testimonial.name}`}
+                        className="flex-shrink-0 h-12 w-12 rounded-full object-center border-2 border-white/10"
+                      />
                       
                       <div className="flex flex-col items-center md:items-start">
                         <p className="font-bold">{testimonial.name}</p>
@@ -87,7 +99,6 @@ const TestimonialsSection = () => {
                   </div>
                 </div>
               </CarouselItem>
-
             ))}
           </CarouselContent>
           
