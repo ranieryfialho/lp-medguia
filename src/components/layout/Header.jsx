@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const navItems = [
-    { name: "Início", href: "#home" },
+    { name: "Início", href: "#" },
     { name: "Funcionalidades", href: "#funcionalidades" },
     { name: "Benefícios", href: "#beneficios" },
     { name: "Acesso Gratuito", href: "#acesso-gratuito" },
