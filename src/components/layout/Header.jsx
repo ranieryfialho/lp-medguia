@@ -1,0 +1,43 @@
+import { Button } from "@/components/ui/button";
+
+const Header = () => {
+  const navItems = [
+    { name: "Início", href: "#home" },
+    { name: "Funcionalidades", href: "#funcionalidades" },
+    { name: "Benefícios", href: "#beneficios" },
+    { name: "Acesso Gratuito", href: "#acesso-gratuito" },
+    { name: "FAQ", href: "#faq" },
+  ];
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#1a0a2e]/50 backdrop-blur-lg">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+
+        <a href="#" className="text-2xl font-bold text-white">
+          Med<span className="text-[#2575fc]">Guia</span>
+        </a>
+
+        <nav className="hidden md:flex">
+          <ul className="flex items-center space-x-6">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  className="text-[#a0a0a0] transition-colors hover:text-white"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <Button className="hidden md:block bg-[#2575fc] hover:bg-[#2575fc]/90">
+          Solicitar Demonstração
+        </Button>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
