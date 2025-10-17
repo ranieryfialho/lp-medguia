@@ -11,6 +11,7 @@ import avatarDrErnane from "@/assets/dr-ernane.jpg";
 import avatarDrHeitor from "@/assets/dr-heitor-dourado.jpg";
 import avatarSecCarla from "@/assets/secretaria-carla.jpg";
 import avatarDrCalosFitas from "@/assets/dr-carlos-fitas.png";
+import avatarDrRainier from "@/assets/dr-rainier.jpg";
 
 const testimonials = [
   {
@@ -39,6 +40,13 @@ const testimonials = [
     quote:
       "O MedGuia é uma nova plataforma com inúmeras novidades. A principal delas é a transcrição da consulta por inteligência artificial, que dinamiza e personaliza o atendimento sem que eu precise ficar escrevendo. Além disso, a plataforma oferece ferramentas que viabilizam a vida financeira do consultório e o suporte é excepcional, tirando todas as dúvidas de imediato.",
     name: "Dr. Carlos Alberto Fitas",
+    title: "Ortopedia e Traumatologia",
+  },
+  {
+    avatar: avatarDrRainier,
+    quote:
+      "Tenho utilizado o MedGuia há aproximadamente um mes e tem auxiliado muito no consultorio e gestão da agenda. É muito completo e intuitivo. Ajuda tanto na parte pratica, do proprio atendimento, quanto na gestão financeira. Não pretendo mais trocá-lo. Excelente aquisição para o consultorio!",
+    name: "Dr. Rainier",
     title: "Ortopedia e Traumatologia",
   },
 ];
