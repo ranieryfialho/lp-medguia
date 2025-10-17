@@ -1,4 +1,7 @@
+// src/components/layout/Header.jsx
+
 import { Button } from "@/components/ui/button";
+import logoImg from "@/assets/logo.png"; 
 
 const Header = () => {
   const navItems = [
@@ -14,9 +17,22 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#1a0a2e]/50 backdrop-blur-lg">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
 
-        <a href="#" className="text-2xl font-bold text-white">
-          Med<span className="text-[#2575fc]">Guia</span>
+        {/* ==================================================================== */}
+        {/* INÍCIO DA MUDANÇA: Combinando imagem e texto no logo */}
+        {/* ==================================================================== */}
+        <a href="#" className="flex items-center gap-1"> {/* Usar 'gap-1' ou 'gap-0' para ajustar o espaço */}
+          <img 
+            src={logoImg} 
+            alt="MedGuia Logo Icon" 
+            className="h-8 w-auto" // Ajuste a altura conforme necessário
+          /> 
+          <span className="text-2xl font-bold text-white">
+            Med<span className="text-[#2575fc]">Guia</span>
+          </span>
         </a>
+        {/* ==================================================================== */}
+        {/* FIM DA MUDANÇA */}
+        {/* ==================================================================== */}
 
         <nav className="hidden md:flex">
           <ul className="flex items-center space-x-6">
