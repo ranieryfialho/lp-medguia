@@ -1,54 +1,46 @@
 import { motion } from "framer-motion";
-import { CalendarClock, FileText, LayoutDashboard, Target, Users, DollarSign } from "lucide-react";
+import { CalendarClock, FileText, Users, DollarSign } from "lucide-react";
 
-const features = [
+import dashboardImage from "@/assets/dashboard-medguia.png";
+import scrumboardImage from "@/assets/scrumboard-medguia.png"; 
+
+const mainFeatures = [
+  {
+    image: dashboardImage,
+    title: "Dashboard Estratégico: Seus Dados, Descomplicados",
+    description:
+      "Visualize os indicadores mais importantes da sua clínica em tempo real. Acompanhe o desempenho financeiro, perfil de pacientes e procedimentos mais rentáveis com gráficos claros e intuitivos. Tome decisões baseadas em fatos, não em suposições, sem precisar de planilhas complexas.",
+  },
+  {
+    image: scrumboardImage,
+    title: "Scrumboard de Follow-up: Nunca Perca um Paciente de Vista",
+    description:
+      "Um quadro inteligente que organiza seus pacientes por status e avisa automaticamente o momento ideal para o contato. Aumente a taxa de retorno e a fidelização garantindo a continuidade do cuidado de forma proativa e organizada.",
+  },
+];
+
+const otherFeatures = [
   {
     icon: <CalendarClock className="h-8 w-8 text-[#a0a0a0]" />,
     title: "Agendamento Inteligente",
-    description: "Sistema rápido e intuitivo com bloqueio de horários e lembretes automáticos para reduzir faltas.",
+    description: "Organize sua agenda com lembretes automáticos para reduzir faltas.",
   },
   {
     icon: <FileText className="h-8 w-8 text-[#a0a0a0]" />,
     title: "Prontuário Eletrônico Completo",
-    description: "Registro seguro de consultas, exames e prescrições com textos padrão e busca por palavras-chave.",
-  },
-  {
-    icon: <LayoutDashboard className="h-8 w-8 text-[#a0a0a0]" />,
-    title: "Dashboard Estratégico",
-    description: "Gráficos e indicadores de performance em tempo real para decisões baseadas em dados concretos.",
-  },
-  {
-    icon: <Target className="h-8 w-8 text-[#a0a0a0]" />,
-    title: "Scrumboard para Follow-ups",
-    description: "Cards inteligentes que lembram a equipe sobre retornos e momentos ideais para contato com pacientes.",
+    description: "Registro seguro com busca rápida por palavras-chave.",
   },
   {
     icon: <Users className="h-8 w-8 text-[#a0a0a0]" />,
     title: "CRM de Vendas Integrado",
-    description: "Acompanhe oportunidades, histórico de interações e controle todo o funil de conversão de pacientes.",
+    description: "Acompanhe oportunidades e controle o funil de conversão.",
   },
   {
     icon: <DollarSign className="h-8 w-8 text-[#a0a0a0]" />,
     title: "Personalização Total",
-    description: "Configure locais, horários, serviços e adapte a plataforma 100% à realidade da sua clínica.",
+    description: "Adapte a plataforma 100% à realidade da sua clínica.",
   },
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
 
 const FeaturesSection = () => {
   return (
@@ -63,25 +55,51 @@ const FeaturesSection = () => {
         </p>
       </div>
 
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
-      >
-        {features.map((feature, index) => (
-          <motion.div key={index} variants={itemVariants} className="group relative">
-            
-            <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#6a11cb] to-[#2575fc] opacity-0 blur-lg transition duration-300 group-hover:opacity-75" />
+      <div className="mt-16 space-y-12">
+        {mainFeatures.map((feature, index) => (
+          <motion.div
+            key={feature.title}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: index * 0.2 }}
+            className="group relative"
+          >
+            <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#6a11cb] to-[#2575fc] opacity-30 blur-lg" />
+            <div className="relative grid grid-cols-1 items-center gap-8 rounded-lg border border-white/10 bg-[#1a0a2e]/60 p-8 backdrop-blur-xl md:grid-cols-2">
 
-            <div className="relative h-full w-full rounded-lg border border-white/10 bg-[#1a0a2e]/60 p-6 backdrop-blur-xl">
+              <div className="rounded-md overflow-hidden border border-white/10">
+                <img
+                  src={feature.image}
+                  alt={`Imagem da funcionalidade: ${feature.title}`}
+                  className="h-full w-full object-cover"
+                />
+              </div>
 
-              <div className="mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-bold">{feature.title}</h3>
-              <p className="mt-2 text-[#a0a0a0]">{feature.description}</p>
+              <div className={index % 2 !== 0 ? "md:order-first" : ""}>
+                <h3 className="text-2xl font-bold">{feature.title}</h3>
+                <p className="mt-4 text-[#a0a0a0]">{feature.description}</p>
+              </div>
             </div>
           </motion.div>
+        ))}
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.4 }}
+        className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+      >
+        {otherFeatures.map((feature) => (
+          <div key={feature.title} className="rounded-lg border border-white/10 bg-white/5 p-6 text-center">
+            <div className="inline-block rounded-lg bg-white/10 p-3">
+              {feature.icon}
+            </div>
+            <h3 className="mt-4 text-xl font-bold">{feature.title}</h3>
+            <p className="mt-2 text-sm text-[#a0a0a0]">{feature.description}</p>
+          </div>
         ))}
       </motion.div>
     </section>

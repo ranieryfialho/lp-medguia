@@ -4,6 +4,7 @@ const Header = () => {
   const navItems = [
     { name: "Início", href: "#" },
     { name: "Funcionalidades", href: "#funcionalidades" },
+    { name: "Inteligência Artificial", href: "#ia" },
     { name: "Benefícios", href: "#beneficios" },
     { name: "Acesso Gratuito", href: "#acesso-gratuito" },
     { name: "FAQ", href: "#faq" },

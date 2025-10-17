@@ -9,6 +9,8 @@ import TestimonialsSection from "./components/sections/TestimonialsSection";
 import FreeAccessSection from "./components/sections/FreeAccessSection";
 import FaqSection from "./components/sections/FaqSection";
 import CtaSection from "./components/sections/CtaSection";
+import AiSection from "./components/sections/AiSection";
+import ProductTourSection from "./components/sections/ProductTourSection";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <HeroSection />
       <ProblemSolutionSection />
       <FeaturesSection />
+      <ProductTourSection />
+      <AiSection />
       <BenefitsSection />
       <DifferentiatorsSection />
       <TestimonialsSection />
