@@ -1,3 +1,5 @@
+// src/components/sections/CtaSection.jsx
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -21,8 +23,7 @@ const CtaSection = () => {
 
     const formattedMessage = `Olá! Tenho interesse no acesso gratuito ao MedGuia.\n\n*Nome:* ${name}\n*Email:* ${email}\n*Telefone:* ${phoneValue}`;
     const encodedMessage = encodeURIComponent(formattedMessage);
-    const whatsappUrl = `https://wa.me/${targetPhoneNumber}?text=${encodedMessage}`;
-
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=${targetPhoneNumber}&text=${encodedMessage}&type=phone_number&app_absent=0`;
     window.open(whatsappUrl, "_blank");
   };
 

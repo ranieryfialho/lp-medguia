@@ -65,11 +65,9 @@ const HeroSection = () => {
                 Solicitar Demonstração Gratuita
               </Button>
             </a>
-            {/* ==================================================================== */}
-            {/* INÍCIO DA MUDANÇA: Adicionando target e rel */}
-            {/* ==================================================================== */}
+
             <a 
-              href="https://wa.me/5585999435040?text=Ol%C3%A1!%20Vim%20da%20p%C3%A1gina%20MedGuia%20e%20cogostaria%20de%20saber%20mais%20sobre%20a%20o%20plano%20de%20demonstra%C3%A7%C3%A3o."
+              href="https://api.whatsapp.com/send/?phone=5585999435040&text=Ol%C3%A1%21+Vim+da+p%C3%A1gina+MedGuia+e+cogostaria+de+saber+mais+sobre+a+o+plano+de+demonstra%C3%A7%C3%A3o.&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -81,9 +79,7 @@ const HeroSection = () => {
                 Fale Conosco
               </Button>
             </a>
-            {/* ==================================================================== */}
-            {/* FIM DA MUDANÇA */}
-            {/* ==================================================================== */}
+
           </motion.div>
         </div>
 
